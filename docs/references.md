@@ -54,13 +54,6 @@
   - 역할: self-attention 자체를 증류 대상으로 삼아 효율적 압축을 보여 준 사례
   - 검색 키워드: MiniLM Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers
 
-## 6. 읽는 순서 제안
-- 개념부터 잡고 싶다면 `Hinton 2015 -> Gou 2020 survey` 순서가 좋다.
-- 종류를 정리하고 싶다면 `Yang 2023 -> 03 문서 -> types-of-knowledge-distillation 문서` 흐름이 가장 직접적이다.
-- 중간 특징과 attention이 궁금하다면 `FitNets -> Attention Transfer`를 보면 된다.
-- 학습 방식의 차이를 이해하고 싶다면 `Deep Mutual Learning -> Born Again Networks -> Teacher Assistant -> Be Your Own Teacher` 순서가 자연스럽다.
-- NLP와 LLM으로 넘어가려면 `DistilBERT -> TinyBERT -> MiniLM -> 2024 LLM survey` 흐름이 좋다.
-
 ## 연결 문서
 - [무엇을 전달하는가](03-what-gets-transferred.md)
 - [지식 증류의 종류 정리](types-of-knowledge-distillation.md)
