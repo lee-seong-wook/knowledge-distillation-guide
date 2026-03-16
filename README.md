@@ -20,6 +20,8 @@ flowchart LR
   - soft target, dark knowledge, temperature, 손실 조합
 - [무엇을 전달하는가](docs/03-what-gets-transferred.md)
   - 출력, 특징, attention, 관계 지식
+- [지식 증류의 종류 정리](docs/types-of-knowledge-distillation.md)
+  - 전달 대상, 학습 구도, teacher 구성, 적용 상황 기준의 전체 분류
 - [어떻게 학습하는가](docs/04-how-training-works.md)
   - offline, online, self distillation, teacher assistant
 - [실제로 어디에 쓰이는가](docs/05-real-world-use-cases.md)
@@ -33,12 +35,6 @@ flowchart LR
 - [용어집](docs/glossary.md)
 - [핵심 논문 타임라인](docs/paper-timeline.md)
 - [참고 자료](docs/references.md)
-
-## 이 레포를 읽는 방법
-- 처음 읽는다면 `01 -> 02 -> 03 -> 04` 순서로 보는 것이 가장 자연스럽다.
-- 실무 관점이 먼저 궁금하다면 `05`를 먼저 읽고, 그 다음 `04`와 `07`로 돌아오면 된다.
-- LLM 소형화 맥락이 궁금하다면 `02`를 읽은 뒤 바로 `06`으로 가도 된다.
-- 논문 흐름부터 잡고 싶다면 [핵심 논문 타임라인](docs/paper-timeline.md)을 먼저 보고 각 장으로 들어가면 된다.
 
 ## 핵심 질문
 ### 1. 지식 증류는 무엇을 해결하려고 시작됐는가

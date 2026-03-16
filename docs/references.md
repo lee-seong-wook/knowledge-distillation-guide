@@ -6,6 +6,9 @@
 - Jianping Gou 외, 2020, Knowledge Distillation: A Survey
   - 역할: 고전적인 지식 증류의 분류, 학습 방식, 응용을 정리한 대표 서베이
   - 공개 PDF: https://eprints.bbk.ac.uk/id/eprint/44038/1/KD_Survey-arxiv.pdf
+- Chuanguang Yang 외, 2023, Categories of Response-Based, Feature-Based, and Relation-Based Knowledge Distillation
+  - 역할: response, feature, relation 기준과 offline, online, self 같은 scheme 기준을 함께 정리한 분류 중심 서베이
+  - 공개 PDF: http://arxiv.org/pdf/2306.10687
 - Xiaohan Xu 외, 2024, A Survey on Knowledge Distillation of Large Language Models
   - 역할: LLM distillation을 알고리즘, 능력, 도메인 축으로 정리한 서베이
   - 관련 정리 저장소: https://github.com/Tebmer/Awesome-Knowledge-Distillation-of-LLMs
@@ -53,12 +56,14 @@
 
 ## 6. 읽는 순서 제안
 - 개념부터 잡고 싶다면 `Hinton 2015 -> Gou 2020 survey` 순서가 좋다.
+- 종류를 정리하고 싶다면 `Yang 2023 -> 03 문서 -> types-of-knowledge-distillation 문서` 흐름이 가장 직접적이다.
 - 중간 특징과 attention이 궁금하다면 `FitNets -> Attention Transfer`를 보면 된다.
 - 학습 방식의 차이를 이해하고 싶다면 `Deep Mutual Learning -> Born Again Networks -> Teacher Assistant -> Be Your Own Teacher` 순서가 자연스럽다.
 - NLP와 LLM으로 넘어가려면 `DistilBERT -> TinyBERT -> MiniLM -> 2024 LLM survey` 흐름이 좋다.
 
 ## 연결 문서
-- [지식 증류란 무엇인가](01-knowledge-distillation-is.md)
+- [무엇을 전달하는가](03-what-gets-transferred.md)
+- [지식 증류의 종류 정리](types-of-knowledge-distillation.md)
 - [어떻게 학습하는가](04-how-training-works.md)
 - [LLM 시대의 지식 증류](06-llm-distillation.md)
 - [핵심 논문 타임라인](paper-timeline.md)
