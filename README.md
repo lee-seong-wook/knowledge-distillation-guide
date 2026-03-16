@@ -1,25 +1,8 @@
 # 지식 증류 가이드
 
-비전공자도 이해할 수 있는, 연구 근거 기반 Knowledge Distillation 안내서입니다.
+지식 증류(Knowledge Distillation)는 큰 모델의 판단 방식을 작은 모델이 배우도록 만드는 학습 방법입니다. 핵심은 정답 한 개만 전달하는 것이 아니라, teacher가 본 문제의 구조와 클래스 간 유사성까지 student에게 함께 전달하는 데 있습니다. 그래서 student는 더 작고 빠르면서도 teacher의 판단 패턴 일부를 이어받을 수 있습니다.
 
-## 이 저장소는 무엇을 다루나
-- 큰 모델이 작은 모델을 어떻게 가르치는지
-- soft target, dark knowledge, temperature가 왜 중요한지
-- offline, online, self distillation이 어떻게 다른지
-- CNN, Transformer, LLM에서 지식 증류가 어떻게 쓰이는지
-- 대표 논문이 각각 어떤 역할을 했는지
-
-## 누구를 위한 저장소인가
-- 지식 증류를 처음 접하는 학생과 개발자
-- 모델을 더 가볍고 빠르게 배포하고 싶은 사람
-- 논문을 읽기 전에 큰 그림부터 잡고 싶은 사람
-- LLM 소형화와 온디바이스 AI가 왜 중요한지 궁금한 사람
-
-## 1분 요약
-1. 지식 증류는 큰 모델인 teacher가 작은 모델인 student를 가르치는 학습 방식입니다.
-2. 핵심은 정답 한 개만 전달하는 것이 아니라, 어떤 답이 얼마나 그럴듯한지도 함께 전달하는 데 있습니다.
-3. 그래서 student는 더 작고 빠르면서도 teacher의 판단 패턴 일부를 배울 수 있습니다.
-4. 이 아이디어는 모델 압축에서 출발했지만, 지금은 Transformer 압축과 LLM 소형화까지 넓게 이어집니다.
+이 아이디어는 처음에는 모델 압축 문제에서 출발했지만, 지금은 CNN, Transformer, LLM까지 이어지는 넓은 학습 전략으로 확장되었습니다. 즉 지식 증류는 단순한 경량화 기법이 아니라, 작은 모델을 더 똑똑하게 학습시키는 방법으로 이해하는 편이 맞습니다.
 
 ```mermaid
 flowchart LR
@@ -28,34 +11,29 @@ flowchart LR
     C --> D[빠른 추론과 낮은 비용]
 ```
 
-이 그림의 핵심은 단순한 정답 복사가 아니라, teacher의 판단 습관을 student가 배우는 과정이라는 점입니다. 그래서 지식 증류는 모델 압축이면서 동시에 학습 전략입니다.
+이 그림의 요점은 student가 teacher의 가중치를 복사하는 것이 아니라, teacher의 판단 습관을 배우는 데 있습니다. 그래서 지식 증류는 모델 압축이면서 동시에 학습 설계 문제입니다.
 
-## 추천 읽기 순서
-1. [01. 지식 증류란 무엇인가](docs/01-knowledge-distillation-is.md)
-2. [02. 왜 잘 작동하는가](docs/02-why-it-works.md)
-3. [03. 무엇을 전달하는가](docs/03-what-gets-transferred.md)
-4. [04. 어떻게 학습하는가](docs/04-how-training-works.md)
-5. [05. 실제로 어디에 쓰이는가](docs/05-real-world-use-cases.md)
-6. [06. LLM 시대의 지식 증류](docs/06-llm-distillation.md)
-7. [07. 한계와 오해, FAQ](docs/07-limitations-misconceptions-faq.md)
+## 이 저장소에서 다루는 내용
+- teacher-student 구조와 soft target의 의미
+- dark knowledge와 temperature가 중요한 이유
+- 출력, 특징, attention, 관계처럼 무엇을 전달할 수 있는지
+- offline, online, self distillation이 어떻게 다른지
+- 모바일, 서버, NLP, LLM에서 왜 지식 증류가 중요한지
+- 대표 논문이 각각 어떤 질문에 답했는지
+
+## 읽기 순서
+1. [지식 증류란 무엇인가](docs/01-knowledge-distillation-is.md)
+2. [왜 잘 작동하는가](docs/02-why-it-works.md)
+3. [무엇을 전달하는가](docs/03-what-gets-transferred.md)
+4. [어떻게 학습하는가](docs/04-how-training-works.md)
+5. [실제로 어디에 쓰이는가](docs/05-real-world-use-cases.md)
+6. [LLM 시대의 지식 증류](docs/06-llm-distillation.md)
+7. [한계와 오해, FAQ](docs/07-limitations-misconceptions-faq.md)
 8. [참고 자료](docs/references.md)
 
-## 문서 구성
-- `01`은 지식 증류의 출발점과 teacher-student 개념을 설명합니다.
-- `02`는 soft target, dark knowledge, temperature를 직관적으로 풉니다.
-- `03`은 출력, 특징, attention, 관계처럼 무엇을 옮길 수 있는지 정리합니다.
-- `04`는 offline, online, self, teacher assistant 방식을 비교합니다.
-- `05`는 모바일, 서버 비용, 비전과 NLP 사례를 통해 활용 맥락을 보여줍니다.
-- `06`은 LLM distillation의 white-box와 black-box 흐름을 설명합니다.
-- `07`은 큰 teacher가 항상 좋은 것은 아니라는 점을 포함해 흔한 오해를 정리합니다.
-
-## 참고 자료 정책
-이 저장소는 특정 블로그를 따라 쓴 문서가 아닙니다. 대표 원논문과 서베이를 바탕으로 내용을 다시 구성했습니다.
-- 개념 축: Hinton 2015, FitNets, Attention Transfer
-- 학습 축: Deep Mutual Learning, Born Again Networks, Teacher Assistant, Self Distillation
-- NLP와 LLM 축: DistilBERT, TinyBERT, MiniLM, 2024 LLM survey, 2025 comprehensive survey
-
-세부 출처와 추천 읽을거리는 [참고 자료](docs/references.md)에 정리했습니다.
-
-## 라이선스
-이 저장소의 문서는 [CC BY 4.0](LICENSE) 기준으로 공유합니다.
+## 핵심 흐름
+- Hinton 2015는 teacher의 soft target을 student가 따라 배우는 고전적 구조를 제시했습니다.
+- FitNets와 Attention Transfer는 최종 출력뿐 아니라 중간 특징과 attention도 전달할 수 있음을 보여 주었습니다.
+- Deep Mutual Learning, Born Again Networks, Teacher Assistant, Self Distillation은 지식 증류가 한 가지 고정된 형태가 아니라는 점을 드러냈습니다.
+- DistilBERT, TinyBERT, MiniLM은 Transformer와 NLP 환경에서 지식 증류가 실전 압축 전략이 될 수 있음을 보여 준 대표 사례입니다.
+- 최근에는 이 흐름이 LLM distillation으로 확장되어, 더 작은 언어 모델을 배포 가능하게 만드는 핵심 전략으로 이어지고 있습니다.

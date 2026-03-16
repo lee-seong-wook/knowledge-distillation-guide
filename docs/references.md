@@ -1,6 +1,6 @@
 # 참고 자료
 
-이 문서의 논문 제목, 연도, 역할 구분은 Semantic Scholar MCP로 검증했습니다.
+아래는 이 저장소의 핵심 참고 자료입니다. 먼저 서베이로 큰 그림을 잡고, 그 다음 대표 원논문을 읽으면 흐름이 자연스럽습니다.
 
 ## 입문자가 먼저 읽기 좋은 자료
 - Jianping Gou 외, 2020, Knowledge Distillation: A Survey
@@ -47,8 +47,8 @@
   - 역할: self-attention 자체를 증류 대상으로 삼아 효율적 압축을 보여 준 사례
   - 검색 키워드: MiniLM Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers
 
-## 이 저장소를 읽는 순서와 연결되는 참고 축
+## 읽는 흐름
 - 개념을 먼저 잡고 싶다면 Hinton 2015와 Gou 2020 survey를 먼저 읽으면 좋습니다.
 - 중간 특징과 attention이 궁금하다면 FitNets와 Attention Transfer를 보면 됩니다.
-- 학습 방식의 차이를 이해하고 싶다면 Deep Mutual Learning, Born Again Networks, Teacher Assistant, Be Your Own Teacher를 순서대로 보면 좋습니다.
+- 학습 방식의 차이를 이해하고 싶다면 Deep Mutual Learning, Born Again Networks, Teacher Assistant, Be Your Own Teacher를 순서대로 보면 됩니다.
 - NLP와 LLM으로 넘어가고 싶다면 DistilBERT, TinyBERT, MiniLM 다음에 2024 LLM survey를 읽는 흐름이 자연스럽습니다.
