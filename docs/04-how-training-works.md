@@ -19,7 +19,7 @@ flowchart TD
 
 online distillation은 미리 완성된 teacher가 없어도 된다. 여러 모델이 동시에 학습하면서 서로의 예측을 참고해 함께 좋아진다. Deep Mutual Learning은 이 흐름의 대표 사례다. 여기서는 상호작용 자체가 학습 신호가 된다.
 
-self distillation은 이름 그대로 모델이 자기 자신에게서 배우는 방식이다. 하나의 네트워크 안에서 더 깊은 층의 정보를 얕은 층에 전달하거나, 이전 세대 모델이 다음 세대 모델을 가르치는 식으로 구현된다. Born Again Networks와 Be Your Own Teacher는 지식 증류가 꼭 큰 teacher와 작은 student의 고정 구도만을 뜻하지 않는다는 점을 잘 보여 준다.
+self distillation은 이름 그대로 모델이 자기 자신에게서 배우는 방식이다. 하나의 네트워크 안에서 더 깊은 층의 정보를 얕은 층에 전달하는 식으로 구현되며, Be Your Own Teacher가 대표 사례다. Born Again Networks는 넓게는 self-distillation 문헌과 함께 언급되기도 하지만, 더 정확히는 이전 세대 teacher가 다음 세대 student를 가르치는 sequential KD 사례로 구분하는 편이 엄밀하다.
 
 teacher와 student의 크기 차이도 중요하다. 상식적으로는 teacher가 클수록 좋을 것 같지만, 실제로는 teacher와 student의 간극이 너무 크면 지식이 잘 전달되지 않을 수 있다. Teacher Assistant 방식은 중간 크기의 모델을 한 단계 넣어 큰 teacher의 지식을 여러 단계로 나누어 전달한다.
 
@@ -38,7 +38,7 @@ flowchart LR
 | --- | --- | --- | --- | --- |
 | offline distillation | 미리 학습 완료 | 단순하고 안정적 | 강한 teacher를 미리 준비해야 함 | Hinton 2015 |
 | online distillation | 동시에 학습 | teacher가 없어도 상호 학습 가능 | 학습 설계가 복잡할 수 있음 | Deep Mutual Learning |
-| self distillation | 자기 자신 또는 이전 세대 사용 | 추가 teacher 없이도 가능 | 구조 설계가 중요함 | Born Again Networks, Be Your Own Teacher |
+| self distillation | 자기 자신 또는 이전 세대 사용 | 추가 teacher 없이도 가능 | 구조 설계가 중요함 | Be Your Own Teacher |
 | teacher assistant | 중간 teacher 추가 | 큰 capacity gap 완화 | 단계가 늘어나고 비용이 증가 | Teacher Assistant |
 
 실제로 어떤 방식을 고를지는 상황에 따라 다르다. 이미 강한 teacher가 있고 student를 빠르게 만들고 싶다면 offline이 좋다. 여러 모델을 함께 학습시키며 성능을 끌어올리고 싶다면 online이 유리하다. 추가 teacher 없이 자기 구조를 개선하고 싶다면 self distillation이 실용적이다. teacher와 student 차이가 너무 크다면 teacher assistant를 고려해야 한다.

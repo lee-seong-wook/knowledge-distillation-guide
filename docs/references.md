@@ -2,6 +2,8 @@
 
 이 문서는 참고 자료를 개념 기여 기준으로 묶어 정리한다. 먼저 서베이로 큰 그림을 잡고, 그 다음 원논문을 읽으면 흐름이 자연스럽다.
 
+연도는 이해를 돕기 위해 첫 공개 시점(arXiv 또는 공개본 기준)으로 적었다. 링크는 가능하면 정식 출판본 또는 접근 가능한 공개본을 우선 연결했다.
+
 ## 1. 큰 그림을 잡는 서베이
 - Jianping Gou 외, 2020, Knowledge Distillation: A Survey
   - 역할: 고전적인 지식 증류의 분류, 학습 방식, 응용을 정리한 대표 서베이
@@ -40,7 +42,7 @@
   - 역할: teacher와 student 차이가 너무 클 때 중간 단계를 두는 전략 제안
   - 논문 페이지: https://www.semanticscholar.org/paper/bc6dfc6bda2d929fec91042dce1831fd07999b39
 - Linfeng Zhang 외, 2019, Be Your Own Teacher: Improve the Performance of Convolutional Neural Networks via Self Distillation
-  - 역할: self distillation의 대표 사례
+  - 역할: internal self distillation의 대표 사례
   - 논문 페이지: https://www.semanticscholar.org/paper/a8cab29d2230924dffe89d6dda15ba42790c5ebf
 
 ## 5. Transformer와 NLP 압축의 대표 사례
